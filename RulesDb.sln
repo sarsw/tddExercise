@@ -6,17 +6,16 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RulesDb", "RulesDb\RulesDb.csproj", "{0B8AB51E-DD0B-4FF6-9C1E-049A005F3897}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RulesEngine", "RulesEngine\RulesEngine.csproj", "{4D3992DB-898E-4424-9C46-0B973FAF23E2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0B8AB51E-DD0B-4FF6-9C1E-049A005F3897} = {0B8AB51E-DD0B-4FF6-9C1E-049A005F3897}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RulesEngine.Test", "RulesEngine.Test\RulesEngine.Test.csproj", "{120FFDBA-7FE8-4BF6-9137-2A303488F4EF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D131B2ED-9045-40A3-90F7-30E6F37E5BEC}"
 	ProjectSection(SolutionItems) = preProject
+		Scripts\physical.lua = Scripts\physical.lua
 		README.md = README.md
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{AC8E420C-405A-4935-8E57-2C64992DC91E}"
-	ProjectSection(SolutionItems) = preProject
-		physical.lua = physical.lua
 	EndProjectSection
 EndProject
 Global

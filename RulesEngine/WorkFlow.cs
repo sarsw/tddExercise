@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using RulesDb;
+using System;
+using System.IO;
 
 namespace RulesEngine
 {
@@ -16,6 +18,13 @@ namespace RulesEngine
         {
             return scripts.GetScripts(scriptPath);
         }
+
+        public int Process(Item item)
+        {
+            return 1;
+        }
+
+
         #endregion scripts
     }
 }
