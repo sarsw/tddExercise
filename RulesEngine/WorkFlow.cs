@@ -1,10 +1,21 @@
-﻿namespace RulesEngine
+﻿using System.IO;
+
+namespace RulesEngine
 {
     public class WorkFlow
     {
-        public static bool Load(string empty)
+        private ScriptInterface scripts;
+
+        public WorkFlow() 
         {
-            return false;
+            scripts = new ScriptInterface();
         }
+
+        #region scripts
+        public int GetLogic(string scriptPath)
+        {
+            return scripts.GetScripts(scriptPath);
+        }
+        #endregion scripts
     }
 }
