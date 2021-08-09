@@ -6,12 +6,19 @@ An order processing application is needed for a large company. In the past, this
 random mixture of manual and ad-hoc automated business practices to handle orders; they now want to put all these
 various ways of hanadling orders together into one whole: your application. After a full day of workshops you have
 gathered the following set of rules which need to be managed by the new system.
-ï If the payment is for a physical product, generate a packing slip for shipping.
-ï If the payment is for a book, create a duplicate packing slip for the royalty department.
-ï If the payment is for a membership, activate that membership.
-ï If the payment is an upgrade to a membership, apply the upgrade.
-ï If the payment is for a membership or upgrade, e-mail the owner and inform them of the activation/upgrade.
-ï If the payment is for the video ìLearning to Ski,î add a free ìFirst Aidî video to the packing slip (the result of a court
+
+‚Ä¢ If the payment is for a physical product, generate a packing slip for shipping.
+
+‚Ä¢ If the payment is for a book, create a duplicate packing slip for the royalty department.
+
+‚Ä¢ If the payment is for a membership, activate that membership.
+
+‚Ä¢ If the payment is an upgrade to a membership, apply the upgrade.
+
+‚Ä¢ If the payment is for a membership or upgrade, e-mail the owner and inform them of the activation/upgrade.
+
+‚Ä¢ If the payment is for the video ‚ÄúLearning to Ski,‚Äù add a free ‚ÄúFirst Aid‚Äù video to the packing slip (the result of a court
 decision in 1997).
-ï If the payment is for a physical product or a book, generate a commission payment to the agent.
+
+‚Ä¢ If the payment is for a physical product or a book, generate a commission payment to the agent.
 Design a new system which can handle these rules and yet open to extension to new rules
