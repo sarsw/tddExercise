@@ -21,4 +21,6 @@ gathered the following set of rules which need to be managed by the new system.
 decision in 1997).
 
 • If the payment is for a physical product or a book, generate a commission payment to the agent.
+
+
 Design a new system which can handle these rules and yet open to extension to new rules
