@@ -24,3 +24,5 @@ decision in 1997).
 
 
 Design a new system which can handle these rules and yet open to extension to new rules
+
+Implemented using a Lua scripting engine to provide flexibility in changing rules for products without compromising core functionality.
