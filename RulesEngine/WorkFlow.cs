@@ -6,22 +6,22 @@ namespace RulesEngine
 {
     public class WorkFlow
     {
-        private ScriptInterface scripts;
+        private ScriptInterface rules;
 
         public WorkFlow() 
         {
-            scripts = new ScriptInterface();
+            rules = new ScriptInterface();
         }
 
         #region scripts
         public int GetLogic(string scriptPath)
         {
-            return scripts.GetScripts(scriptPath);
+            return rules.GetScripts(scriptPath);
         }
 
-        public int Process(Item item)
+        public string Process(Order order)
         {
-            return 1;
+            return rules.ExecuteMain(order);
         }
 
 

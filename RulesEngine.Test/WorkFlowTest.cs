@@ -30,34 +30,41 @@ namespace RulesEngine.Test
             Assert.IsTrue(wf.GetLogic(rulesPath) >= result);
         }
 
-        [TestCase("book title", Item.ThingType.Book, 1)]
-        [TestCase("membership", Item.ThingType.Membership, 2)]
-        public void AddItem_Db_ReturnsOne(string description, Item.ThingType thingType, int orderNumber)
+        [TestCase("book title", "book", "physical", 1)]
+        [TestCase("membership application", "membership", "virtual", 2)]
+        public void AddItem_Db_ReturnsOne(string description, string thingType, string subType, int orderNumber)
         {
             Db db = new Db();
 
-            Item it = new Item() { itemType = thingType, itemDescription = description };
-            db.Things.Add(orderNumber, it);
+            Order order = new() { OrderNumber = orderNumber };
+            
+            Item it = new() {  ItemDescription = description, ItemType = thingType, SubType = subType, Qty = 1};
 
-            Assert.IsTrue(db.Things[orderNumber].itemDescription == description && db.Things[orderNumber].itemType == thingType);
+            order.Basket[1]=it;
+
+            db.Things[orderNumber] = order;
+
+            Assert.IsTrue(db.Things[orderNumber].Basket[1].ItemDescription == description && db.Things[orderNumber].Basket[1].ItemType == thingType);
         }
 
-        [TestCase("book title", Item.ThingType.Book, 1)]
-        [TestCase("membership", Item.ThingType.Membership, 2)]
-        public void CheckScript_ForType_ReturnsOne(string description, Item.ThingType thingType, int orderNumber)
+        [TestCase("this is a test", "testItem", "testSub", 1, "testSub testItem")]
+        [TestCase("book title", "book", "physical", 1, "Shipping Royalty Dept Commission Payment")]
+        [TestCase("Learning to Ski", "video", "physical", 1, "Shipping Commission Payment First Aid")]
+        [TestCase("membership application", "membership", "virtual", 2, "activate")]
+        [TestCase("membership upgrade", "upgrade", "virtual", 2, "upgrade s@s.com")]
+        public void CheckScript_ForType_ReturnsTrue(string description, string thingType, string subType, int orderNumber, string expected)
         {
-            Db db = new Db();
 
-            Item it = new Item() { itemType = thingType, itemDescription = description };
-            db.Things.Add(orderNumber, it);
+            Order order = new() { OrderNumber = orderNumber, CustomerEmail = "s@s.com" };
+
+            Item it = new() { ItemDescription = description, ItemType = thingType, SubType = subType, Qty = 1 };
+
+            order.Basket[1] = it;
 
             WorkFlow wf = new WorkFlow();       // create the workflow engine
             wf.GetLogic("C:\\Scripts");
 
-            foreach (var item in db.Things)     // there'll be only 1 item
-            {
-                Assert.IsTrue(1 == wf.Process(item.Value));
-            }
+             Assert.IsTrue(expected == wf.Process(order));
         }
 
     }

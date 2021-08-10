@@ -3,9 +3,9 @@
 
     public class Item
     {
-        public enum ThingType { Upgrade, Membership, Physical, Book };
-
-        public string itemDescription;
-        public ThingType itemType;
+        public string ItemType;
+        public string SubType;
+        public string ItemDescription;
+        public int Qty;
     }
 }

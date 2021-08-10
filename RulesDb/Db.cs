@@ -5,6 +5,6 @@ namespace RulesDb
 {
     public partial class Db
     {
-        public Dictionary<int, Item> Things = new Dictionary<int, Item>();
+        public Dictionary<int, Order> Things = new Dictionary<int, Order>();
     }
 }
